@@ -1,12 +1,3 @@
-﻿# -*- coding: utf-8 -*-
-"""
-《数据分析师python微专业》 - 前置课
-
-Part04 数据揭秘：用数据八卦运动员
-
-5、谁是身材最佳的运动员？
-
-"""
 
 import numpy as np
 import pandas as pd
