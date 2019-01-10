@@ -4,7 +4,7 @@ import seaborn as sns
 import warnings
 import os
 
-os.chdir('E:\\临时\\classdata')
+os.chdir('G:\\临时\\classdata')
 warnings.filterwarnings('ignore')
 
 # 查看数据
@@ -60,7 +60,7 @@ g.set(xlim = (0,4),
 
 g.add_legend()
 plt.show()
-plt.savefig('pic6.png',dpi=400)
+plt.savefig('q4.png',dpi=400)
 
 # 经过计算一些数值更直观的得到结论
 ct90 = 0
@@ -75,4 +75,5 @@ for i in data80['count']:
     ct80 += i
 for i in data70['count']:
     ct70 += i
-print("90后运动员所占比例为:{:.2f},80后运动员所占比例为:{:.2f},70后运动员所占比例为:{:.2f}".format(ct90/len(data),ct80/len(data),ct70/len(data)))
+print("90后运动员所占比例为:{:.4f},80后运动员所占比例为:{:.4f},70后运动员所占比例为:{:.4f}".format(ct90/df_length,ct80/df_length,ct70/df_length))
+# 90后：44.78%，80后：51.30%，70后：3.48%
