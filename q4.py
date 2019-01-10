@@ -39,7 +39,7 @@ sns.set_style("ticks")
 # 散点图在最后答辩的时候可以用来引出折线图，能大概的说明一个趋势
 # 用散点图不能很好的反映数据，反映问题，经过多次的调试，最终又改为折线图。
 data['age_range'] = pd.cut(data['age'],
-                          [0,26,36,60],
+                          [0,26,36,46],
                           labels=[1,2,3])
 data2 = data.groupby(['event','age_range']).count()
 data2.reset_index(inplace=True)
@@ -55,8 +55,24 @@ g.map(plt.plot, "age_range", "count",
 g.set(xlim = (0,4),
       ylim = (-10,40),
       xticks = [0,1,2,3,4],
-      xticklabels = ['',"90s", "80s",">80s",''],
+      xticklabels = ['',"90s", "80s","70s",''],
       yticks = [0,10,20,30,40])
 
 g.add_legend()
+plt.show()
 plt.savefig('pic6.png',dpi=400)
+
+# 经过计算一些数值更直观的得到结论
+ct90 = 0
+ct80 = 0
+ct70 = 0
+data90 = data2[data2['age_range'] == 1]
+data80 = data2[data2['age_range'] == 2]
+data70 = data2[data2['age_range'] == 3]
+for i in data90['count']:
+    ct90 += i
+for i in data80['count']:
+    ct80 += i
+for i in data70['count']:
+    ct70 += i
+print("90后运动员所占比例为:{:.2f},80后运动员所占比例为:{:.2f},70后运动员所占比例为:{:.2f}".format(ct90/len(data),ct80/len(data),ct70/len(data)))
