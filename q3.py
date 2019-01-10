@@ -52,9 +52,28 @@ g.plot_joint(plt.scatter,c='w',s=15, linewidth=1, marker="+")
 plt.savefig('pic3.png',dpi=400)
 
 # 折线图————讨论手长脚长是否会影响运动员的成绩
-g = plt.scatter(x = data['grade'],y = data['final'],
-                marker = 'o',c = 'g',alpha = '0.6')
+# g = plt.scatter(x = data['grade'],y = data['final'],
+#                 marker = 'o',c = 'g',alpha = '0.6')
+# plt.xlabel('grade')
+# plt.ylabel('leg/arm')
+# plt.show()
+# plt.savefig('q3-3.png',dpi=400)
+color = ['g','y']
+plt.figure(figsize = (12,5))
+g = plt.scatter(data['grade'],data['final'],
+                s = 40,marker = 'o',c = color, alpha = '0.6')
+plt.grid(True)
 plt.xlabel('grade')
 plt.ylabel('leg/arm')
+plt.title("Score--Stature?")
 plt.show()
-plt.savefig('q3-3.png',dpi=400)
+plt.savefig('q3-32.png',dpi=400)
+
+# sns.set_style("darkgrid")
+# g = sns.jointplot(x=data['grade'], y=data['final'],data = data,
+#                   kind="kde", color='k',   # 这里color = color中，第一个color为参数，第二个color为变量
+#                   alpha = 0.6,shade_lowest=False)
+# g.plot_joint(plt.scatter,c='k',s=15, linewidth=1, marker="o")
+# plt.title("Score--Stature?")
+# plt.show()
+# plt.savefig('q3-31.png',dpi=400)
